@@ -1,21 +1,21 @@
 # define a dictionary of items and their prices
 items = {
     "Drinks": {
-        "A": {"name": "Coke", "price": 1.50, "stock": 10},
+        "A": {"name": "Coke", "price": 2.50, "stock": 10},
         "B": {"name": "Sprite", "price": 1.50, "stock": 10},
-        "C": {"name": "Pepsi", "price": 1.50, "stock": 10},
+        "C": {"name": "Pepsi", "price": 2.50, "stock": 10},
         "D": {"name": "Fanta", "price": 1.50, "stock": 10},
     },
     "Snacks": {
-        "E": {"name": "Snickers", "price": 3, "stock": 10},
+        "E": {"name": "Snickers", "price": 2.50, "stock": 10},
         "F": {"name": "Twix", "price": 1.50, "stock": 10},
         "G": {"name": "M&M", "price": 2, "stock": 10},
         "H": {"name": "Skittles", "price": 1.50, "stock": 10},
     },
     "Chips": {
-        "I": {"name": "Lays", "price": 1, "stock": 10},
-        "J": {"name": "Cheetoz", "price": 2.50, "stock": 10},
-        "K": {"name": "Doritoz", "price": 1.50, "stock": 10},
+        "I": {"name": "Lays", "price": 1.50, "stock": 10},
+        "J": {"name": "Cheetos", "price": 3, "stock": 10},
+        "K": {"name": "Doritos", "price": 2.50, "stock": 10},
         "L": {"name": "Pringles", "price": 3, "stock": 10},
     },
 }
@@ -42,7 +42,7 @@ def get_code(items):
 
 # function to get valid amount of money from user
 def get_money(items, code):
-    # search for item in Drinks and Snacks dictionaries
+    # search for item in Drinks, Chips and Snacks dictionaries
     for category, category_items in items.items():
         if code in category_items:
             item = category_items[code]
@@ -63,7 +63,7 @@ def get_money(items, code):
 
 # function to dispense item and calculate change
 def dispense_item(items, code, money):
-    # search for item in Drinks and Snacks dictionaries
+    # search for item in Drinks, Chips and Snacks dictionaries
     for category, category_items in items.items():
         if code in category_items:
             item = category_items[code]
@@ -78,7 +78,7 @@ def dispense_item(items, code, money):
         print(f'\nDispensing {item["name"]}...')
         change = money - item["price"]
         item["stock"] -= 1
-        print(f"Returning Dhs{change:.2f} change...\n")
+        print(f"Returning ${change:.2f} change...\n")
     else:
         print(f'\nError: {item["name"]} is out of stock.')
 
@@ -118,4 +118,3 @@ while True:
             exit()
         else:
             print("Error: Invalid response. Please try again.")
-
